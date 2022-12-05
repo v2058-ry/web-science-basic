@@ -1,0 +1,10 @@
+{
+    "name":{
+        "first": "Tato",
+        "last": "Bundai"
+    },
+    "birthplace": "Oita",
+    "height": 168,
+    "interests": ["web", "internet"],
+    "alive": true
+}

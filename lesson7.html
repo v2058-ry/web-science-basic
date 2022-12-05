@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <title>ウェブサイエンス：Lesson 7</title>
+    </head>
+    <body>
+        <h1>ウェブサイエンス：Lesson 7</h1>
+        <a href="index.html">戻る</a>
+        <h2>HTTPでWebAPIにアクセス</h2>
+            <table style="border: 1px #000 solid;">
+            <tr id="publishingOffice">
+                <th>発表者</th>
+                <td></td>
+            </tr>
+            <tr id="reportDatetime">
+                <th>報告日時</th>
+                <td></td>
+            </tr>
+            <tr id="targetArea">
+                <th>対象地域</th>
+                <td></td>
+            </tr>
+            <tr id="headlineText">
+                <th>ヘッドライン</th>
+                <td></td>
+            </tr>
+            <tr id="text">
+                <th>詳細</th>
+                <td></td>
+            </tr>
+        </table>
+        <script>
+            //fetch('lesson7.json')
+            fetch('https://www.jma.go.jp/bosai/forecast/data/overview_forecast/440000.json')
+            .then(function(response){
+                return response.json();
+            })
+            .then(function(data){
+                console.log(data);
+                document.getElementById("publishingOffice").lastElementChild.textContent=data.publishingOffice;
+                document.getElementById("reportDatetime").lastElementChild.textContent=data.reportDatetime;
+                document.getElementById("targetArea").lastElementChild.textContent=data.targetArea;
+                document.getElementById("headlineText").lastElementChild.textContent=data.headlineText;
+                document.getElementById("text").lastElementChild.innerHTML=data.text.replace(/\n\n/g, '<br>');
+                });
+        </script>
+          
+        
+        
+    </body>
+</html>

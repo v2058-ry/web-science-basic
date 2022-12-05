@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <title>ウェブサイエンス：Lesson 8</title>
+    </head>
+    <body>
+        <h1>ウェブサイエンス：Lesson 8</h1>
+        <a href="index.html">戻る</a>
+        <h2>FaaSでWebAPIの構築</h2>
+        <p id="enMessage"></p>
+        <p id="jaMessage"></p>
+        <script>
+            fetch('https://es3c0zqpz9.execute-api.us-east-1.amazonaws.com/lesson8')
+            .then(function(response){
+                return response.json();
+            })
+            .then(function(data){
+                document.getElementById("enMessage").textContent=data.en;
+                document.getElementById("jaMessage").textContent=data.ja;
+            });
+        </script> 
+        
+    </body>
+</html>
